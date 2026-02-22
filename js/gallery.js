@@ -81,6 +81,8 @@ function itemsTemplate(arr) {
     return arr.map(itemTemplate).join('');
 }
 
+ulElem.innerHTML = itemsTemplate(images);
+
 ulElem.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -88,7 +90,6 @@ ulElem.addEventListener("click", (event) => {
     if (img.nodeName !== `IMG`) {
         return;
     }
-    ulElem.innerHTML = itemsTemplate(images);
 
     const largeImage = img.dataset.source;
     const instance = basicLightbox.create(` <img src="${largeImage}" alt="${img.alt}" /> `);

@@ -1,4 +1,4 @@
-const ulElem = document.guerySelector(".gallery")
+const ulElem = document.querySelector(".gallery")
 const images = [
   {
     preview:
@@ -88,8 +88,11 @@ ulElem.addEventListener("click", (event) => {
     if (img.nodeName !== `IMG`) {
         return;
     }
+    ulElem.innerHTML = itemsTemplate(images);
 
     const largeImage = img.dataset.source;
     const instance = basicLightbox.create(` <img src="${largeImage}" alt="${img.alt}" /> `);
+
+    instance.show();
 });
 
